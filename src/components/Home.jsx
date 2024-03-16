@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { render } from "react-dom";
 import { instance } from "../utils/axios";
 import { List, EmptyList } from "./List";
 
@@ -8,12 +9,14 @@ export const Home = () => {
   const [pagination, setPagination] = useState({
     count: 0,
     page: 1,
-    limit: 20,
+    limit: 10,
   });
 
   useEffect(() => {
     const controller = new AbortController();
     const getData = async () => {
+      // setOffset((pagination.page - 1) * pagination.limit);
+
       const offset = (pagination?.page - 1) * pagination?.limit;
       const { data } = await instance.get(
         `pokemon?limit=${pagination?.limit}&offset=${offset}`,
@@ -22,8 +25,8 @@ export const Home = () => {
         }
       );
       setPokemon(data?.results);
-      setPagination((prevCount) => {
-        return { ...prevCount, count: data?.count };
+      setPagination((pagination) => {
+        return { ...pagination, count: data?.count };
       });
     };
     getData();
@@ -33,7 +36,17 @@ export const Home = () => {
   return (
     <>
       <div>
-        <button>Increase Limit by 20</button>
+        <input
+          type="text"
+          onChange={(e) => {
+            setPagination((pagination) => {
+              return {
+                ...pagination,
+                limit: Number(e.target.value),
+              };
+            });
+          }}
+        />
       </div>
       {pokemon.length > 0 ? <List data={pokemon} /> : <EmptyList />}
     </>
