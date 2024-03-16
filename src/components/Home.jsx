@@ -30,5 +30,12 @@ export const Home = () => {
     return () => controller.abort();
   }, [pagination?.page, pagination?.limit]);
 
-  return <>{pokemon.length > 0 ? <List data={pokemon} /> : <EmptyList />}</>;
+  return (
+    <>
+      <div>
+        <button>Increase Limit by 20</button>
+      </div>
+      {pokemon.length > 0 ? <List data={pokemon} /> : <EmptyList />}
+    </>
+  );
 };
