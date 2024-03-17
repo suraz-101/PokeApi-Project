@@ -1,3 +1,4 @@
+import { Context } from "./components/Context";
 import { Home } from "./components/Home";
 import { ReverseCount } from "./components/Questions/Question";
 
@@ -10,6 +11,7 @@ const App = () => {
         <Home />
         <h1>Reverse Counter</h1>
         <ReverseCount time={6} />
+        <Context />
       </div>
     </>
   );
