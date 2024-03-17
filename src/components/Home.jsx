@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { render } from "react-dom";
 import { instance } from "../utils/axios";
 import { List, EmptyList } from "./List";
 
@@ -15,8 +14,6 @@ export const Home = () => {
   useEffect(() => {
     const controller = new AbortController();
     const getData = async () => {
-      // setOffset((pagination.page - 1) * pagination.limit);
-
       const offset = (pagination?.page - 1) * pagination?.limit;
       const { data } = await instance.get(
         `pokemon?limit=${pagination?.limit}&offset=${offset}`,
@@ -36,6 +33,8 @@ export const Home = () => {
   return (
     <>
       <div>
+        <label htmlFor="">Limit: </label>
+
         <input
           type="text"
           onChange={(e) => {
@@ -47,6 +46,7 @@ export const Home = () => {
             });
           }}
         />
+        <hr />
       </div>
       {pokemon.length > 0 ? <List data={pokemon} /> : <EmptyList />}
     </>
