@@ -16,9 +16,7 @@ export const List = ({ data }) => {
               return (
                 <tr key={d?.name}>
                   <td>{d?.name}</td>
-                  <td>
-                    <a href="#">{d?.url}</a>
-                  </td>
+                  <td>{d?.url}</td>
                 </tr>
               );
             })}
