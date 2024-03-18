@@ -1,26 +1,28 @@
 import { useContext, useState } from "react"; // importing useContext to use the context
 import { createContext } from "react"; // importing createContext function to create the context
 
-const UserContext = createContext(null); // creating the contextvariable with default value null
+const UserContext = createContext({}); // creating the contextvariable with default value null
 
 export const Context = () => {
   const [name, setName] = useState("Suraj ");
   return (
     <>
+      <Context1 />
       <UserContext.Provider value={{ name, setName }}>
         {/*context provider */}
         {/* <Context1 /> */}
-        <Context1 />
+        <Context2 />
       </UserContext.Provider>
-      {/* <Context1 /> */}
     </>
   );
 };
 
 const Context1 = () => {
+  const username = useContext(UserContext);
   return (
     <>
-      <Context2 />
+      {username.name}
+      {/* <Context2 /> */}
     </>
   );
 };
