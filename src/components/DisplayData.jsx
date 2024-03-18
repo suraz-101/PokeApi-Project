@@ -16,7 +16,7 @@ export const DisplayProductsData = ({ id }) => {
       ) : (
         <>
           <hr />
-          <p> Porduct name is :</p>
+          <p> Porduct name is : </p>
           {data?.title}
         </>
       )}
