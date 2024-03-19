@@ -5,7 +5,7 @@ import { useFetch } from "../hooks/useFetch";
 
 export const userContext = createContext(null);
 
-export const ContextProvider = ({ children }) => {
+export const UserContextProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState({});
 
   const { data } = useFetch("https://dummyjson.com/users/1");

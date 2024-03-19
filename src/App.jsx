@@ -35,7 +35,7 @@ const App = () => {
 
         <br />
         <DisplayProductsData id={1} />
-        <DisplayUsersData id={2} />
+        <DisplayUsersData id={1} />
 
         <hr />
       </div>
