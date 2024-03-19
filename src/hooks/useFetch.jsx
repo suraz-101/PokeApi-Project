@@ -14,7 +14,7 @@ export const useFetch = (url) => {
       const signal = controller.signal;
       const getData = async () => {
         const { data } = await axios.get(url, { signal });
-
+        console.log(data.name);
         setData(data);
       };
 

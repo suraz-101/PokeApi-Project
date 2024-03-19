@@ -8,6 +8,8 @@ import { ReverseCount } from "./components/Questions/Question";
 import { ChangeTheme } from "./components/Theme";
 import { ThemeContext } from "./context/ThemeContext";
 import { useContext } from "react";
+import { Navbar } from "./components/Questions/Navbar";
+import { Profile } from "./components/Questions/Profile";
 
 const App = () => {
   const theme = useContext(ThemeContext);
@@ -16,7 +18,16 @@ const App = () => {
   return (
     <>
       <div>
+        {/* <Login /> */}
         <ChangeTheme />
+        <hr />
+        <Navbar />
+
+        <hr />
+
+        <Profile />
+        <hr />
+
         <Home />
         <h1>Reverse {theme?.theme}</h1>
         <ReverseCount time={1} />
@@ -25,6 +36,8 @@ const App = () => {
         <br />
         <DisplayProductsData id={1} />
         <DisplayUsersData id={2} />
+
+        <hr />
       </div>
     </>
   );
