@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -12,8 +13,15 @@ export const ThemeContextProvider = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, ToggleTheme }}>
+    <ThemeContext.Provider value={{ theme, ToggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
+
+// export const useStyle = () => {
+//   const context = useContext(ThemeContext);
+//   if (context === undefined) throw new Error("Context not found");
+
+//   return context;
+// };

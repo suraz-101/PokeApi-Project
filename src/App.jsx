@@ -10,15 +10,36 @@ import { ThemeContext } from "./context/ThemeContext";
 import { useContext } from "react";
 import { Navbar } from "./components/Questions/Navbar";
 import { Profile } from "./components/Questions/Profile";
+import { Search } from "./components/Questions/Search";
+import { Header } from "./components/Header";
+import { Hero } from "./components/Hero";
+import "./assets/css/App.css";
 
 const App = () => {
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+  const style = {
+    light: {
+      backgroundColor: "white",
+      color: "black",
+    },
+    dark: {
+      backgroundColor: "black",
+      color: "white",
+    },
+  };
+
+  const themeStyle = {
+    ...(theme === "light" ? style.light : style.dark),
+  };
+
   // const date = new Date("2024-10-11 10:00:00").toISOString();
   // console.log(date);
   return (
     <>
-      <div>
-        {/* <Login /> */}
+      <div style={themeStyle}>
+        <Header />
+        <Hero />
+        {/* <Search />
         <ChangeTheme />
         <hr />
         <Navbar />
@@ -35,7 +56,7 @@ const App = () => {
 
         <br />
         <DisplayProductsData id={1} />
-        <DisplayUsersData id={1} />
+        <DisplayUsersData id={1} /> */}
 
         <hr />
       </div>
