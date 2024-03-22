@@ -14,6 +14,7 @@ import { Search } from "./components/Questions/Search";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import "./assets/css/App.css";
+import { MemoHook } from "./components/Questions/MemoHook";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -38,7 +39,8 @@ const App = () => {
     <>
       <div style={themeStyle}>
         <Header />
-        <Hero />
+        <MemoHook />
+        {/* <Hero /> */}
         {/* <Search />
         <ChangeTheme />
         <hr />
